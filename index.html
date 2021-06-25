@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Weather App</title>
+</head>
+
+<body>
+  <header class="jumbotron jumbotron-fluid header-bar">
+    <div class="container">
+      <h1 class="display-4 text-center">Weather Dashboard</h1>
+    </div>
+  </header>
+  <main>
+    <section class="row">
+      <div class="col-4">
+        <div class="ftco-animate fadeInUp ftco-animated box-01">
+          <form action="#" class="domain-form" id="target">
+            <div class="form-group d-md-flex"> 
+              <input type="text" class="form-control" id='search-input' placeholder="Enter city name...">
+              <input type="submit"  class="search-domain btn btn-primary" value="Check Weather">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="card domain-form box-02 mini-box">
+          <div class="card-body">
+            <h2 id='city-name'>City Name</h2>
+            <p id='today-temp'>Temp:</p>
+            <p id='today-wind'>Wind:</p>
+            <p id='today-humidity'>Humidity:</p>
+            <p id='today-uv'>UV Index:</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="row">
+      <div class="list-group col-4">
+        <div class='box-03'>
+          <button type="button" class="list-group-item list-group-item-action active">Cras justo odio</button>
+          <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+          <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+          <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+          <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+        </div>
+      </div>
+      <div class="col-8 card-deck">
+        <div class='row card-deck mx-auto'>
+          <div class="card col-2 mini-box" style="width: 13rem;height:15.25rem">
+            <div class="card-body">
+              <p id='time-1'></p>
+              <p id='temp-1'>Temp:</p>
+              <p id='wind-1'>Wind:</p>
+              <p id='humidity-1'>Humidity:</p>
+            </div>
+          </div>
+          <div class="card col-2 mini-box" style="width: 13rem;height:15.25rem">
+            <div class="card-body">
+              <p id='time-2'></p>
+              <p id='temp-2'>Temp:</p>
+              <p id='wind-2'>Wind:</p>
+              <p id='humidity-2'>Humidity:</p>
+            </div>
+          </div>
+          <div class="card col-2 mini-box" style="width: 13rem; height:15.25rem">
+            <div class="card-body">
+              <p id='time-3'></p>
+              <p id='temp-3'>Temp:</p>
+              <p id='wind-3'>Wind:</p>
+              <p id='humidity-3'>Humidity:</p>
+            </div>
+          </div>
+          <div class="card col-2 mini-box" style="width: 13rem;height:15.25rem">
+            <div class="card-body">
+              <p id='time-4'></p>
+              <p id='temp-4'>Temp:</p>
+              <p id='wind-4'>Wind:</p>
+              <p id='humidity-4'>Humidity:</p>
+            </div>
+          </div>
+          <div class="card col-2 mini-box" style="width: 13rem;height:15.25rem">
+            <div class="card-body">
+              <p id='time-5'></p>
+              <p id='temp-5'>Temp:</p>
+              <p id='wind-5'>Wind:</p>
+              <p id='humidity-5'>Humidity:</p>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+  <footer>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
