@@ -2,7 +2,6 @@ $("#target").submit(function () {
   let cityName = $("#search-input").val();
   processWeatherData(cityName);
 });
-
 function processWeatherData(cityName) {
   let requestUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -34,7 +33,6 @@ function processWeatherData(cityName) {
       $("#today-wind").text("Wind: " + data.wind.speed + " MPH");
       $("#today-humidity").text("Humidity: " + data.main.humidity + "%");
       let cityPick = data.name;
-
       function createStorage() {
         if (!Object.values(localStorage).includes(cityPick)) {
           localStorage.setItem(localStorage.length, cityPick);
@@ -48,11 +46,9 @@ function processWeatherData(cityName) {
           $(".recent-search").prepend(create);
         }
       }
-
       createStorage();
       let lat = data.coord.lat;
       let lon = data.coord.lon;
-
       let requestUrlTwo =
         "https://api.openweathermap.org/data/2.5/onecall?lat=" +
         lat +
@@ -77,7 +73,6 @@ function processWeatherData(cityName) {
     })
     .then(function (data) {
       var weatherDataTotal = {};
-
       var dataList = data.list;
       var dateList = [];
       for (let i = 0; i < dataList.length; i++) {
@@ -98,8 +93,6 @@ function processWeatherData(cityName) {
           weatherDataTotal[date].count++;
         }
       }
-
-      console.log(dateList);
       function formatData(dateString) {
         var date = new Date(dateString);
         var month = date.getMonth() + 1;
@@ -114,16 +107,7 @@ function processWeatherData(cityName) {
         data.humidity = data.humidity / data.count;
         return data;
       }
-      console.log(weatherDataTotal);
-      //   weatherDataTotal.sort(function(a, b) {
-      //     var dateA = new Date(a.date), dateB = new Date(b.date);
-      //     return dateA - dateB;
-      // });
-      // console.log(weatherDataTotal);
-      // let stringArray =Object.getOwnPropertyNames(weatherDataTotal);
-      // let numberArray = stringArray.map(Number);
       $("#img-icon").remove();
-
       let i = 0;
       let limit = 5;
       let counter = 0;
@@ -131,9 +115,7 @@ function processWeatherData(cityName) {
       while (i < limit) {
         let dataObject;
         var currentDate = new Date().getDate();
-
         var validDate = dateList[i] !== currentDate;
-        
         if (validDate) {
           limit++;
           dataObject = getAverageData(dateList[i]);
@@ -176,15 +158,11 @@ function searchHistory() {
   }
 }
 searchHistory();
-
 $(".clear-history").click(function () {
   localStorage.clear();
   location.reload();
 });
-
 $(".search-btn").click(function (event) {
   let recentCity = $(event.target).text();
-  console.log("event trigger city", recentCity);
-  // $("#target").trigger('submit', [recentCity])
   processWeatherData(recentCity);
 });
