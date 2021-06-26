@@ -7,6 +7,9 @@
   <meta name="description" content="">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Weather App</title>
 </head>
@@ -19,85 +22,89 @@
   </header>
   <main>
     <section class="row">
-      <div class="col-4">
-        <div class="ftco-animate fadeInUp ftco-animated box-01">
+      <div class="col-lg-12 col-xl-4 search-box" >
+        <div class="ftco-animate fadeInUp ftco-animated box-01 search-box">
           <form action="#" class="domain-form" id="target">
-            <div class="form-group d-md-flex"> 
+            <div class="form-group d-md-flex">
               <input type="text" class="form-control" id='search-input' placeholder="Enter city name...">
-              <input type="submit"  class="search-domain btn btn-primary" value="Check Weather">
+              <input type="submit" class="search-domain btn btn-primary" value="Check Weather">
             </div>
           </form>
         </div>
       </div>
-      <div class="col-8">
-        <div class="card domain-form box-02 mini-box">
+      <div class="col-lg-12 col-xl-8">
+        <div class="card domain-form box-02 big-box">
           <div class="card-body">
             <h2 id='city-name'>City Name</h2>
+            <div id='icon-big'></div>
             <p id='today-temp'>Temp:</p>
             <p id='today-wind'>Wind:</p>
             <p id='today-humidity'>Humidity:</p>
             <p id='today-uv'>UV Index:</p>
           </div>
-        </div>
-      </div>
+        </div </div>
     </section>
     <section class="row">
-      <div class="list-group col-4">
-        <div class='box-03'>
-          <button type="button" class="list-group-item list-group-item-action active">Cras justo odio</button>
-          <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-          <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-          <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-          <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+      <div class="list-group col-lg-12 col-xl-4">
+        <div class='box-03 recent-search'>
+          <button type="button" class="list-group-item list-group-item-action active clear-history">Clear History
+          </button>
         </div>
       </div>
-      <div class="col-8 card-deck">
+      <div class="card-deck col-lg-12 col-xl-8">
         <div class='row card-deck mx-auto'>
-          <div class="card col-2 mini-box" style="width: 13rem;height:15.25rem">
+          <div class="card col-lg-12 col-xl-2 mini-box">
             <div class="card-body">
+              <p id='time-0'></p>
+              <div id='icon-0'> </div>
+              <p id='temp-0'>Temp:</p>
+              <p id='wind-0'>Wind:</p>
+              <p id='humidity-0'>Humidity:</p>
+            </div>
+          </div>
+          <div class="card col-lg-12 col-xl-2 mini-box" >
+            <div class="card-body ">
               <p id='time-1'></p>
+              <div id='icon-1'> </div>
               <p id='temp-1'>Temp:</p>
               <p id='wind-1'>Wind:</p>
               <p id='humidity-1'>Humidity:</p>
             </div>
           </div>
-          <div class="card col-2 mini-box" style="width: 13rem;height:15.25rem">
+          <div class="card col-lg-12 col-xl-2 mini-box" >
             <div class="card-body">
               <p id='time-2'></p>
+              <div id='icon-2'> </div>
               <p id='temp-2'>Temp:</p>
               <p id='wind-2'>Wind:</p>
               <p id='humidity-2'>Humidity:</p>
             </div>
           </div>
-          <div class="card col-2 mini-box" style="width: 13rem; height:15.25rem">
+          <div class="card col-lg-12 col-xl-2 mini-box" >
             <div class="card-body">
               <p id='time-3'></p>
+              <div id='icon-3'> </div>
               <p id='temp-3'>Temp:</p>
               <p id='wind-3'>Wind:</p>
               <p id='humidity-3'>Humidity:</p>
             </div>
           </div>
-          <div class="card col-2 mini-box" style="width: 13rem;height:15.25rem">
+          <div class="card col-lg-12 col-xl-2 mini-box" >
             <div class="card-body">
               <p id='time-4'></p>
+              <div id='icon-4'> </div>
               <p id='temp-4'>Temp:</p>
               <p id='wind-4'>Wind:</p>
               <p id='humidity-4'>Humidity:</p>
             </div>
           </div>
-          <div class="card col-2 mini-box" style="width: 13rem;height:15.25rem">
-            <div class="card-body">
-              <p id='time-5'></p>
-              <p id='temp-5'>Temp:</p>
-              <p id='wind-5'>Wind:</p>
-              <p id='humidity-5'>Humidity:</p>
-            </div>
-          </div>
         </div>
+      </div>
     </section>
   </main>
   <footer>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
