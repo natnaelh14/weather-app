@@ -1,5 +1,6 @@
 $("#target").submit(function () {
   let cityName = $("#search-input").val();
+  $("#search-input").val('');
   processWeatherData(cityName);
 });
 function processWeatherData(cityName) {
@@ -29,9 +30,9 @@ function processWeatherData(cityName) {
           $("<img>", { id: "img-big-icon", src: "./partly-bright.png" })
         );
       }
-      $("#today-temp").text("Temp: " + data.main.temp + "°F");
-      $("#today-wind").text("Wind: " + data.wind.speed + " MPH");
-      $("#today-humidity").text("Humidity: " + data.main.humidity + "%");
+      $("#today-temp").text("Temp: " + Math.floor(data.main.temp) + "°F");
+      $("#today-wind").text("Wind: " + Math.floor(data.wind.speed) + " MPH");
+      $("#today-humidity").text("Humidity: " + Math.floor(data.main.humidity) + "%");
       let cityPick = data.name;
       function createStorage() {
         if (!Object.values(localStorage).includes(cityPick)) {
@@ -140,7 +141,7 @@ function processWeatherData(cityName) {
             "Wind: " + Math.floor(dataObject.wind) + " MPH"
           );
           $("#humidity-" + counter).text(
-            "Humidity: " + Math.floor(dataObject.humidity) + "%"
+            "Hum: " + Math.floor(dataObject.humidity) + "%"
           );
           counter++;
         }
