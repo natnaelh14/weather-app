@@ -1,9 +1,13 @@
+//Search Button Event Listeners
 $("#target").submit(function () {
   let cityName = $("#search-input").val();
   $("#search-input").val('');
   processWeatherData(cityName);
 });
+
+
 function processWeatherData(cityName) {
+  // Current Weather API
   let requestUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName +
@@ -30,14 +34,17 @@ function processWeatherData(cityName) {
           $("<img>", { id: "img-big-icon", src: "./partly-bright.png" })
         );
       }
+      //Adding Current Weather data to respective html element
       $("#today-temp").text("Temp: " + Math.floor(data.main.temp) + "°F");
       $("#today-wind").text("Wind: " + Math.floor(data.wind.speed) + " MPH");
       $("#today-humidity").text("Humidity: " + Math.floor(data.main.humidity) + "%");
       let cityPick = data.name;
       function createStorage() {
+        //Storing users search history in local storage
         if (!Object.values(localStorage).includes(cityPick)) {
           localStorage.setItem(localStorage.length, cityPick);
           let create = $("<button>");
+          //Adding CSS classes for dynamically appended button element
           create.attr(
             "class",
             "list-group-item list-group-item-action search-btn"
