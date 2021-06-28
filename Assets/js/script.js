@@ -5,7 +5,6 @@ $("#target").submit(function () {
   processWeatherData(cityName);
 });
 
-
 function processWeatherData(cityName) {
   // Current Weather API
   let requestUrl =
@@ -55,6 +54,7 @@ function processWeatherData(cityName) {
         }
       }
       createStorage();
+      //Adding API to get UV Index information using the lan & lon from user's city name input.
       let lat = data.coord.lat;
       let lon = data.coord.lon;
       let requestUrlTwo =
@@ -71,6 +71,7 @@ function processWeatherData(cityName) {
           $("#today-uv").text("UV Index: " + data.current.uvi);
         });
     });
+  //Third API to add 5 days forecast
   let requestUrlThree =
     "http://api.openweathermap.org/data/2.5/forecast?q=" +
     cityName +
@@ -88,7 +89,7 @@ function processWeatherData(cityName) {
         if (!dateList.includes(date)) dateList.push(date);
         if (!weatherDataTotal[date]) {
           weatherDataTotal[date] = {
-            date: formatData(dataList[i].dt_txt),
+            date: formatDate(dataList[i].dt_txt),
             temp: dataList[i].main.temp,
             wind: dataList[i].wind.speed,
             humidity: dataList[i].main.humidity,
@@ -101,13 +102,14 @@ function processWeatherData(cityName) {
           weatherDataTotal[date].count++;
         }
       }
-      function formatData(dateString) {
+      function formatDate(dateString) {
         var date = new Date(dateString);
         var month = date.getMonth() + 1;
         var day = date.getDate();
         var year = date.getFullYear();
         return month + "/" + day + "/" + year;
       }
+      //Since the API is 3 hour increments, I am averaging it out per day.
       function getAverageData(date) {
         var data = weatherDataTotal[date];
         data.temp = data.temp / data.count;
@@ -116,6 +118,8 @@ function processWeatherData(cityName) {
         return data;
       }
       $("#img-icon").remove();
+      //Loop through the function (getAverageData()) an append it the html.
+
       let i = 0;
       let limit = 5;
       let counter = 0;
@@ -125,7 +129,6 @@ function processWeatherData(cityName) {
         var currentDate = new Date().getDate();
         var validDate = dateList[i] !== currentDate;
         if (validDate) {
-          limit++;
           dataObject = getAverageData(dateList[i]);
           $("#time-" + counter).text(dataObject.date);
           if (dataObject.temp < 60) {
@@ -151,6 +154,8 @@ function processWeatherData(cityName) {
             "Hum: " + Math.floor(dataObject.humidity) + "%"
           );
           counter++;
+        } else {
+          limit++;
         }
         i++;
       }
@@ -165,11 +170,13 @@ function searchHistory() {
     $(".recent-search").prepend(create);
   }
 }
+//Clear search history
 searchHistory();
 $(".clear-history").click(function () {
   localStorage.clear();
   location.reload();
 });
+//Enabling city search by clicking the history
 $(".search-btn").click(function (event) {
   let recentCity = $(event.target).text();
   processWeatherData(recentCity);

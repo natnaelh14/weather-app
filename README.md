@@ -1,5 +1,6 @@
 GitHub Project: Weather App
 GitHub Deployed Link: https://natnaelh14.github.io/weather-app/
+![alt text](https://github.com/natnaelh14/weather-app/blob/main/page.png)
 
 In this project, I set out to create a weather app that provides current weather and 5 days forecast using user's input 
 (city name. In order to achieve this, I used openweathermap API to retrieve the weather data and I then extracted pertinent
