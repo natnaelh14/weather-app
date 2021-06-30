@@ -70,6 +70,7 @@ body {
 .search-text-box,
 .search-text-box:valid:focus {
   background-color: black;
+  color: white;
 }
 
 .search-btn:hover,

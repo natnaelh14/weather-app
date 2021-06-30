@@ -1,7 +1,7 @@
 //Search Button Event Listeners
 $("#target").submit(function () {
   let cityName = $("#search-input").val();
-  $("#search-input").val('');
+  $("#search-input").val("");
   processWeatherData(cityName);
 });
 
@@ -13,7 +13,12 @@ function processWeatherData(cityName) {
     "&appid=104b6fe9ca5b072de45a0aa905980598&units=imperial";
   fetch(requestUrl)
     .then(function (response) {
-      return response.json();
+      if (response.status !== 200) {
+        $("#city-name").text("Please enter valid input");
+          return;
+      } else {
+        return response.json();
+      }
     })
     .then(function (data) {
       $("#city-name").text(
@@ -36,7 +41,9 @@ function processWeatherData(cityName) {
       //Adding Current Weather data to respective html element
       $("#today-temp").text("Temp: " + Math.floor(data.main.temp) + "°F");
       $("#today-wind").text("Wind: " + Math.floor(data.wind.speed) + " MPH");
-      $("#today-humidity").text("Humidity: " + Math.floor(data.main.humidity) + "%");
+      $("#today-humidity").text(
+        "Humidity: " + Math.floor(data.main.humidity) + "%"
+      );
       let cityPick = data.name;
       function createStorage() {
         //Storing users search history in local storage
