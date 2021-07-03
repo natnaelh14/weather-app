@@ -1,5 +1,6 @@
 //Search Button Event Listeners
-$("#target").submit(function () {
+$("#target").submit(function (e) {
+  e.preventDefault();
   let cityName = $("#search-input").val();
   $("#search-input").val("");
   processWeatherData(cityName);
