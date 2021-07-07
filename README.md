@@ -1,5 +1,5 @@
-GitHub Project: Weather App
-GitHub Deployed Link: https://natnaelh14.github.io/weather-app/
+# GitHub Project: Weather App
+# GitHub Deployed Link: https://natnaelh14.github.io/weather-app/
 ![alt text](./page.png)
 ![alt text](./page-02.png)
 
